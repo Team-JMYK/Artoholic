@@ -31,11 +31,11 @@ module.exports = {
         .select('*');
     },
 
-    deletePost(){
+    deletePost(id){
         return knex('post_table').where('id', '=', id).del()
     },
 
-    updatePost(){
+    updatePost(id){
         return knex('post_table')
         .where('id', '=', id)
         .update(updatedPost);

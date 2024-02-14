@@ -39,6 +39,24 @@ module.exports = {
         } catch (error) {
             console.log(error.message)
         }
-        
+    },
+
+    async deleteAPost(req,res) {
+        try {
+            const id = parseInt(req.paramas.id);
+            const deleteThePost = postModel.deletePost(id);
+            res.send(`You deleted post ${id}`);
+        } catch (error) {
+            console.log(error.message)
+        }
+    },
+
+    async updateAPost(req,res) {
+        try {
+            const id =  parseInt(req.paramas.id);
+            const updateThePost = postModel.updatePost(id)
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 }
