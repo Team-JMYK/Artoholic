@@ -49,7 +49,7 @@ const Navbar = () => {
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          <ul className={click ? 'nav-menu' : 'nav-menu active'}>
             <li className="nav-item">
               <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
@@ -69,7 +69,7 @@ const Navbar = () => {
                 Dashboard
               </Link>
             </li>
-            <ul>
+            
               <li className="nav-item">
                 <Link
                   to="/dashboard"
@@ -97,11 +97,9 @@ const Navbar = () => {
                   Login
                 </Link>
               </li>
-            </ul>
+            
             {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
-            {button && (
-              <LoginButton buttonStyle="btn--outline">LOGIN</LoginButton>
-            )}
+            {button && <LoginButton buttonStyle="btn--outline">LOGIN</LoginButton>}
 
             {showSignup && <Signup />}
           </ul>
