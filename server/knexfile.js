@@ -8,7 +8,7 @@ require('dotenv').config({
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.DB_URL || {
+    connection: {
       database: 'blog_database',
       user: process.env.DATABASE_USER || 'sq1',
       host: 'localhost',
