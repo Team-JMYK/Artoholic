@@ -15,7 +15,7 @@ const Signup = () => {
 
     try {
       const response = await fetch(
-        `https://wolf-backend.onrender.com/sign-up`,
+        `http://localhost:8080/sign-up`,
         {
           method: 'POST',
           headers: {
