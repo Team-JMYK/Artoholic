@@ -27,5 +27,15 @@ module.exports = {
           userId,
         })
         .select('*');
-    }
-}
+    },
+
+    deletePost(){
+        return knex('post_table').where('id', '=', id).del()
+    },
+
+    updatePost(){
+        return knex('post_table')
+        .where('id', '=', id)
+        .update(updatedPost);
+    },
+};
