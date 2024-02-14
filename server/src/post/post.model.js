@@ -6,11 +6,11 @@ module.exports = {
     POST_TABLE,
 
     getAllPosts(){
-        return knex('post_table').select('*')
+        return knex(POST_TABLE).select('*')
     },
 
     getSinglePost(id){
-        return knex('post_table')
+        return knex(POST_TABLE)
         .where('id', '=', id)
         .select('*');
     },
@@ -18,7 +18,7 @@ module.exports = {
 // Not sure what we need to pass as a parameter to addNewPost in the MVC model - Matt
 
     addNewPost(){
-        return knex('post_table')
+        return knex(POST_TABLE)
         .insert({
           slug,
           title,
@@ -32,11 +32,11 @@ module.exports = {
     },
 
     deletePost(id){
-        return knex('post_table').where('id', '=', id).del()
+        return knex(POST_TABLE).where('id', '=', id).del()
     },
 
     updatePost(id){
-        return knex('post_table')
+        return knex(POST_TABLE)
         .where('id', '=', id)
         .update(updatedPost);
     },
