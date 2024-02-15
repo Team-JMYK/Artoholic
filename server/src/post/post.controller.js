@@ -25,6 +25,7 @@ module.exports = {
     async addPost(req, res) {
         try {
             const {
+                slug,
                 title,
                 description,
                 body,
@@ -34,7 +35,9 @@ module.exports = {
                 } = req.body;
         
                 const newPost = await postModel.addNewPost(req.body);
+
                 res.send(newPost);
+
         } catch (error) {
             console.log(error.message)
         }
@@ -43,7 +46,9 @@ module.exports = {
     async deleteAPost(req,res) {
         try {
             const id = parseInt(req.paramas.id);
+
             const deleteThePost = await postModel.deletePost(id);
+
             res.send(`You deleted post ${id}`);
         } catch (error) {
             console.log(error.message)
@@ -53,9 +58,12 @@ module.exports = {
     async updateAPost(req,res) {
         try {
             const id =  parseInt(req.paramas.id);
+
             const updateThePost = await postModel.updatePost(id)
+
         } catch (error) {
             console.log(error.message);
         }
     }
 }
+
