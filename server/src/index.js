@@ -9,9 +9,19 @@ const cookieParser = require('cookie-parser');
 dotenv.config({
   path: './.env',
 });
+// const corsOptions = {
+//   origin: 'https://wolf-frontend.onrender.com',
+//   credentials: true,
+// };
 const corsOptions = {
-  origin: 'https://wolf-frontend.onrender.com',
+  origin: 'http://localhost:5173',
   credentials: true,
+  // allowedHeaders: [
+  //   // "set-cookie",
+  //   "Content-Type",
+  //   "Access-Control-Allow-Origin",
+  //   "Access-Control-Allow-Credentials",
+  // ],
 };
 
 const app = express();
@@ -60,41 +70,43 @@ app.post('/sign-up', async (req, res) => {
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  try {
-    const user = await knex('user_table').where({ username }).first();
-    if (user && (await bcrypt.compare(password, user.password))) {
-      const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
-      res.cookie('token', token, {
-        httpOnly: true,
-      });
-      //res.status(200).json({ success: true });
-      res.json('Login successful');
+  const user = await knex('user_table').select("*").where("username", username).first();
+  bcrypt.compare(password, user.password, function (err, result) {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Error while comparing passwords");
+      return;
+    }
+
+    if (result) {
+      console.log("User Authenticated");
+      res.status(200).json({ success: true });
     } else {
-      res.status(401).json('Invalid credentials');
+      console.log("Incorrect Password");
+      res.status(401).send("Invalid credentials");
     }
-  } catch (error) {
-    res.status(500).json('Error during login');
-  }
+  });
+
 });
 
-const isAuthenticated = (req, res, next) => {
-  const token = req.cookies.token;
+// const isAuthenticated = (req, res, next) => {
+//   const token = req.cookies.token;
 
-  if (token) {
-    try {
-      const decoded = jwt.verify(token, JWT_SECRET);
-      req.user = { id: decoded.userId };
-      next();
-    } catch (error) {
-      res.status(401).send('Unauthorized');
-    }
-  } else {
-    res.status(401).send('Unauthorized');
-  }
-};
-app.get('/dashboard', isAuthenticated, (req, res) => {
-  res.send('This is a protected route');
-});
+//   if (token) {
+//     try {
+//       const decoded = jwt.verify(token, JWT_SECRET);
+//       req.user = { id: decoded.userId };
+//       next();
+//     } catch (error) {
+//       res.status(401).send('Unauthorized');
+//     }
+//   } else {
+//     res.status(401).send('Unauthorized');
+//   }
+// };
+// app.get('/dashboard', isAuthenticated, (req, res) => {
+//   res.send('This is a protected route');
+// });
 
 // app.get('/dashboard', authenticateToken, async (req, res) => {
 //   try {
@@ -296,7 +308,7 @@ app.patch('/post_table/:id', async (req, res) => {
 });
 
 // articles routes
-app.post('/', (req, res) => {});
+app.post('/', (req, res) => { });
 
 //test
 app.get('/', (req, res) => {
