@@ -25,7 +25,6 @@ module.exports = {
     async addPost(req, res) {
         try {
             const {
-                slug,
                 title,
                 description,
                 body,
@@ -35,7 +34,7 @@ module.exports = {
                 } = req.body;
         
                 const newPost = await postModel.addNewPost(req.body);
-                res.send(req.body);
+                res.send(newPost);
         } catch (error) {
             console.log(error.message)
         }
