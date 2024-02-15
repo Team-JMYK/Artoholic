@@ -2,7 +2,22 @@
   width: 600px;
 }
 
-.ql-container ql-snow {
-  height: 1000px;
+/* .ql-container ql-snow {
+  height: 300px;
+} */
+
+.react-quill {
+  height: 300px;
 }
 
+.post-btn {
+  padding: 8px 20px;
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  position: fixed;
+  margin-left: 40px;
+  width: 100px;
+}

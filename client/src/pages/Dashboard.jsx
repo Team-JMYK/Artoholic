@@ -3,6 +3,7 @@ import UserPosts from '../component/UserPosts';
 import UserCard from '../component/UserCard';
 import { useAuth } from '../context/authContext';
 import "../styles/Dashboard.css"
+import "../styles/Button.css"
 import ProfilePic from "../img/worfie.jpg"
 import Fuji from "../img/fuji.png"
 import PostEdit from '../component/PostEdit';
@@ -58,39 +59,49 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dashboard-container">
-        <div className="card-header">
-          {/* <img src={ProfilePic} alt="wolf" /> */}
-        </div>
-        <div className="card-body">
-          <p>{user}</p>
-          <p>@MarioLuigi</p>
-          <div>
-            <p>Princess Saver. Guardian of the galaxy</p>
+      <div className='dashboard-wrapper'>
+          <div className='one'>
+            <div className='user-card'>
+            <img className="user-card-image" src={ProfilePic} alt="wolf" />
+              <div className="user-card-body">
+              <p>{user}</p>
+              <p>@MarioLuigi</p>
+              <div>
+                <p>Princess Saver. Guardian of the galaxy</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <form onSubmit={handlePostButton}>
-        <div className="add-post">
-          <p>Title</p>
-          <input
-            type="text"
-            className="add-post-input"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <PostEdit
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            style={{ height: '100px' }}
-          />
-          <button className="post-btn" type="submit">
-            Post
-          </button>
-        </div>
-      </form>
-      <div className="post-area">
-        <UserPosts />
+          </div>
+          <div className='two'>
+            <div className='post-editor-card'>
+            <form onSubmit={handlePostButton}>
+           <div className="add-post">
+             <input
+               type="text"
+               placeholder='Title'
+               className="add-post-input"
+               value={title}
+               onChange={(e) => setTitle(e.target.value)}
+             />
+             <button className="post-btn" type="submit">Post</button>
+             <PostEdit
+               value={description}
+               onChange={(e) => setDescription(e.target.value)}
+               style={{ height: '400px' }}
+             />
+           </div>
+         </form>
+            </div>
+          </div>
+          <div className='three'>
+            <div className='user-post-card'>
+              <img src="./img/art1.jpg"></img>
+              <div className='user-post-card-text'>
+                <h3>Title</h3>
+                <p>Text</p>
+              </div>
+            </div>
+          </div>
       </div>
 
     </>
@@ -98,3 +109,46 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+
+
+
+
+
+// {/* <div className="dashboard-container">
+//         <div className="card-header">
+//           {/* <img src={ProfilePic} alt="wolf" /> */}
+//           </div>
+//           <div className="card-body">
+//             <p>{user}</p>
+//             <p>@MarioLuigi</p>
+//             <div>
+//               <p>Princess Saver. Guardian of the galaxy</p>
+//             </div>
+//           </div>
+//         </div>
+//         <form onSubmit={handlePostButton}>
+//           <div className="add-post">
+//             <p>Title</p>
+//             <input
+//               type="text"
+//               className="add-post-input"
+//               value={title}
+//               onChange={(e) => setTitle(e.target.value)}
+//             />
+//             <PostEdit
+//               value={description}
+//               onChange={(e) => setDescription(e.target.value)}
+//               style={{ height: '100px' }}
+//             />
+//             <button className="post-btn" type="submit">
+//               Post
+//             </button>
+//           </div>
+//         </form>
+//         <div className="post-area">
+//           <UserPosts />
+//         </div> */}
+
+        
