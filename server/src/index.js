@@ -16,12 +16,12 @@ dotenv.config({
 const corsOptions = {
   origin: 'http://localhost:5173',
   credentials: true,
-  // allowedHeaders: [
-  //   // "set-cookie",
-  //   "Content-Type",
-  //   "Access-Control-Allow-Origin",
-  //   "Access-Control-Allow-Credentials",
-  // ],
+  allowedHeaders: [
+    "set-cookie",
+    "Content-Type",
+    "Access-Control-Allow-Origin",
+    "Access-Control-Allow-Credentials",
+  ],
 };
 
 const app = express();
@@ -69,6 +69,7 @@ app.post('/sign-up', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  const authToken = jwt.sign({ username, password }, "DUMMYKEY");
 
   const user = await knex('user_table').select("*").where("username", username).first();
   bcrypt.compare(password, user.password, function (err, result) {
@@ -80,13 +81,32 @@ app.post('/login', async (req, res) => {
 
     if (result) {
       console.log("User Authenticated");
+      res.cookie("authToken", authToken, {
+        path: "/",
+        maxAge: 60 * 3,
+        httpOnly: true,
+      });
+
       res.status(200).json({ success: true });
     } else {
       console.log("Incorrect Password");
       res.status(401).send("Invalid credentials");
     }
   });
+});
 
+app.get("/autoLogin", (req, res) => {
+  const cookie = req.headers.cookie;
+
+  if (!cookie || cookie === null) {
+    return res.sendStatus(401);
+  }
+  return res.sendStatus(200);
+});
+
+app.get("/logout", (req, res) => {
+  res.clear("authToken");
+  return res.sendStatus(200);
 });
 
 // const isAuthenticated = (req, res, next) => {
@@ -138,7 +158,7 @@ app.post('/login', async (req, res) => {
 //timestamp
 const timeStamp = new Date().toISOString();
 
-app.get('/matt', (req,res)=> res.status(200).send("port works"))
+app.get('/matt', (req, res) => res.status(200).send("port works"))
 
 const userController = require("./user/user.controller.js");
 const postController = require("./post/post.controller.js");
