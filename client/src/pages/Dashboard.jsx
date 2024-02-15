@@ -3,6 +3,7 @@ import UserPosts from '../component/UserPosts';
 import UserCard from '../component/UserCard';
 import { useAuth } from '../context/authContext';
 import "../styles/Dashboard.css"
+import "../styles/Button.css"
 import ProfilePic from "../img/worfie.jpg"
 import Fuji from "../img/fuji.png"
 import PostEdit from '../component/PostEdit';
@@ -62,7 +63,7 @@ const Dashboard = () => {
           <div className='one'>
             <div className='user-card'>
             <img className="user-card-image" src={ProfilePic} alt="wolf" />
-              <div className="card-body">
+              <div className="user-card-body">
               <p>{user}</p>
               <p>@MarioLuigi</p>
               <div>
@@ -75,26 +76,26 @@ const Dashboard = () => {
             <div className='post-editor-card'>
             <form onSubmit={handlePostButton}>
            <div className="add-post">
-             <p>Title</p>
              <input
                type="text"
+               placeholder='Title'
                className="add-post-input"
                value={title}
                onChange={(e) => setTitle(e.target.value)}
              />
+             <button className="post-btn" type="submit">Post</button>
              <PostEdit
                value={description}
                onChange={(e) => setDescription(e.target.value)}
                style={{ height: '400px' }}
              />
-             <button className="post-btn" type="submit">
-               Post
-             </button>
            </div>
          </form>
             </div>
           </div>
-          <div className='three'>Three</div>
+          <div className='three'>
+            <div className='post-card'></div>
+          </div>
       </div>
 
     </>
