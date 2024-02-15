@@ -59,7 +59,8 @@ module.exports = {
         try {
             const id =  parseInt(req.paramas.id);
 
-            const updateThePost = await postModel.updatePost(id)
+            const updateThePost = await postModel.updatePost(id);
+            res.send(updateThePost);
 
         } catch (error) {
             console.log(error.message);
