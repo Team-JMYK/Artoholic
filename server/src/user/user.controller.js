@@ -12,7 +12,7 @@ module.exports = {
     async getSingle(req,res){
         try {
             const id = parseInt(req.params.id);
-            const singleUser = userModel.getSingleUser(id);
+            const singleUser = await userModel.getSingleUser(id);
             res.send(singleUser)
         } catch (error) {
             console.log(error.message);
