@@ -6,7 +6,7 @@ module.exports = {
             const allPosts = await postModel.getAllPosts();
             res.send(allPosts);
         } catch (error) {
-            console.log(error.message)
+            console.log(error.message);
         }
     },
 
@@ -16,7 +16,7 @@ module.exports = {
             const onePost = await postModel.getSinglePost(id);
             res.send(onePost); 
         } catch (error) {
-            console.log(error.message)
+            console.log(error.message);
         }
     },
 
@@ -32,7 +32,7 @@ module.exports = {
                 createdAt,
                 updateAt,
                 userId,
-                } = req.body
+                } = req.body;
         
                 const newPost = await postModel.addNewPost(req.body);
                 res.send(req.body);
