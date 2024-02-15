@@ -8,6 +8,7 @@ import ProfilePic from "../img/worfie.jpg"
 import Fuji from "../img/fuji.png"
 import PostEdit from '../component/PostEdit';
 import { Button } from '../component/Button';
+import PostCard from '../component/PostCard';
 
 const Dashboard = () => {
   const { user, logout } = useAuth();
@@ -64,7 +65,7 @@ const Dashboard = () => {
             <div className='user-card'>
             <img className="user-card-image" src={ProfilePic} alt="wolf" />
               <div className="user-card-body">
-              <p>{user}</p>
+              {/* <p>{user}</p> */}
               <p>@MarioLuigi</p>
               <div>
                 <p>Princess Saver. Guardian of the galaxy</p>
@@ -94,13 +95,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className='three'>
-            <div className='user-post-card'>
-              <img className='user-post-card-image' src={Fuji}></img>
-              <div className='user-post-card-text'>
-                <h3>Title</h3>
-                <p>Text</p>
-              </div>
-            </div>
+            <PostCard/>
           </div>
       </div>
 
