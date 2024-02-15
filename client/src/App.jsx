@@ -11,7 +11,6 @@ import UploadImage from './component/UploadImage';
 function App() {
   return (
     <>
-      <UploadImage />
       <Router>
         <AuthProvider>
           <Navbar />

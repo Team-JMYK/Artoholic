@@ -8,7 +8,7 @@ function CardItem() {
       <li className="cards__item">
         <Link className="cards__item__link">
           <figure className="cards__item__pic-wrap" data-category="Art">
-            <img className="cards__item__img" src={art1} alt="art2" />
+            <img className="cards__item__img" src={'https://res.cloudinary.com/dbegmxgyd/image/upload/v1707964956/artoholic/h6jrzlhdbpdm7yd1nwj4.webp'} alt="art2" />
           </figure>
           <div className="cards__item__info">
             <h5 className="cards__item__text">
