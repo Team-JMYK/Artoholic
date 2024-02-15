@@ -45,7 +45,7 @@ module.exports = {
 
     async deleteAPost(req,res) {
         try {
-            const id = parseInt(req.paramas.id);
+            const id = parseInt(req.params.id);
 
             const deleteThePost = await postModel.deletePost(id);
 
@@ -57,9 +57,10 @@ module.exports = {
 
     async updateAPost(req,res) {
         try {
-            const id =  parseInt(req.paramas.id);
-
-            const updateThePost = await postModel.updatePost(id)
+            const id = parseInt(req.params.id);
+            const updateInfo = req.body;
+            const updateThePost = await postModel.updatePost(id, updateInfo);
+            res.send(updateThePost);
 
         } catch (error) {
             console.log(error.message);
