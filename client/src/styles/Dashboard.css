@@ -8,12 +8,13 @@
   display: grid;
   grid-template-columns: repeat(8, auto);
   grid-gap: 10px;
+  padding-left: 50px;
 }
 
 .post-editor-card {
   padding: 10px;
   margin: 10px;
-  background-color: rgb(238, 228, 229);
+  background-color: rgb(240, 239, 235);
   height: 500px;
   border-radius: 10px;
 }
@@ -77,6 +78,17 @@
   height: 100px;
 }
 
+.user-post-card-image {
+  width: 120px;
+}
+
 .user-post-card-text {
   padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,8 +1,7 @@
-.hero-image {
+.hero-img {
   object-fit: cover;
-  width: 100px;
-  left: 0;
   width: 100%;
+  left: 0;
   position: fixed;
   z-index: -1;
 }
@@ -10,7 +9,7 @@
 .hero-container {
   background: url("/client/src/img/japan.jpg") cover;
   height: 100vh;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
