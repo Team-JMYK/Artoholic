@@ -3,6 +3,9 @@
 }
 
 .ql-container ql-snow {
-  height: 1000px;
+  height: 300px;
 }
 
+.react-quill {
+  height: 300px;
+}

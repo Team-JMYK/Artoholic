@@ -13,7 +13,7 @@ const PostEdit = () => {
     return (
         <>
         <div className='richText'>
-        <ReactQuill 
+        <ReactQuill className='react-quill'
           theme="snow"
           value={content}
           onChange={handleChange}

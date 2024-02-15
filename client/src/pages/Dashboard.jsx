@@ -85,7 +85,7 @@ const Dashboard = () => {
              <PostEdit
                value={description}
                onChange={(e) => setDescription(e.target.value)}
-               style={{ height: '100px' }}
+               style={{ height: '400px' }}
              />
              <button className="post-btn" type="submit">
                Post
