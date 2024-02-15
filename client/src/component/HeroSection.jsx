@@ -6,7 +6,7 @@ import art2 from "../img/art2.jpg";
 function HeroSection() {
   return (
     <div className="hero-container">
-      <img src={art2} alt="art2" />
+      <img className="hero-img" src={art2} alt="art2" />
       <h1>Navigating the world through art</h1>
       <p>Exploring the boundless expressions of creativity</p>
     </div>

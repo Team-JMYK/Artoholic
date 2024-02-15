@@ -58,39 +58,43 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="dashboard-container">
-        <div className="card-header">
-          {/* <img src={ProfilePic} alt="wolf" /> */}
-        </div>
-        <div className="card-body">
-          <p>{user}</p>
-          <p>@MarioLuigi</p>
-          <div>
-            <p>Princess Saver. Guardian of the galaxy</p>
+      <div className='dashboard-wrapper'>
+          <div className='one'>
+            <div className='user-card'>
+            <img className="user-card-image" src={ProfilePic} alt="wolf" />
+              <div className="card-body">
+              <p>{user}</p>
+              <p>@MarioLuigi</p>
+              <div>
+                <p>Princess Saver. Guardian of the galaxy</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <form onSubmit={handlePostButton}>
-        <div className="add-post">
-          <p>Title</p>
-          <input
-            type="text"
-            className="add-post-input"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-          <PostEdit
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            style={{ height: '100px' }}
-          />
-          <button className="post-btn" type="submit">
-            Post
-          </button>
-        </div>
-      </form>
-      <div className="post-area">
-        <UserPosts />
+          </div>
+          <div className='two'>
+            <div className='post-editor-card'>
+            <form onSubmit={handlePostButton}>
+           <div className="add-post">
+             <p>Title</p>
+             <input
+               type="text"
+               className="add-post-input"
+               value={title}
+               onChange={(e) => setTitle(e.target.value)}
+             />
+             <PostEdit
+               value={description}
+               onChange={(e) => setDescription(e.target.value)}
+               style={{ height: '100px' }}
+             />
+             <button className="post-btn" type="submit">
+               Post
+             </button>
+           </div>
+         </form>
+            </div>
+          </div>
+          <div className='three'>Three</div>
       </div>
 
     </>
@@ -98,3 +102,46 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+
+
+
+
+
+// {/* <div className="dashboard-container">
+//         <div className="card-header">
+//           {/* <img src={ProfilePic} alt="wolf" /> */}
+//           </div>
+//           <div className="card-body">
+//             <p>{user}</p>
+//             <p>@MarioLuigi</p>
+//             <div>
+//               <p>Princess Saver. Guardian of the galaxy</p>
+//             </div>
+//           </div>
+//         </div>
+//         <form onSubmit={handlePostButton}>
+//           <div className="add-post">
+//             <p>Title</p>
+//             <input
+//               type="text"
+//               className="add-post-input"
+//               value={title}
+//               onChange={(e) => setTitle(e.target.value)}
+//             />
+//             <PostEdit
+//               value={description}
+//               onChange={(e) => setDescription(e.target.value)}
+//               style={{ height: '100px' }}
+//             />
+//             <button className="post-btn" type="submit">
+//               Post
+//             </button>
+//           </div>
+//         </form>
+//         <div className="post-area">
+//           <UserPosts />
+//         </div> */}
+
+        
