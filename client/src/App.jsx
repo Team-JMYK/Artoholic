@@ -6,10 +6,12 @@ import Dashboard from './pages/Dashboard';
 import { AuthProvider } from './context/authContext';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
+import UploadImage from './component/UploadImage';
 
 function App() {
   return (
     <>
+      <UploadImage />
       <Router>
         <AuthProvider>
           <Navbar />
