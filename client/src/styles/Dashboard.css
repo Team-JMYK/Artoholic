@@ -53,7 +53,7 @@
   display: flex;
   flex-direction: column;
   border-collapse: collapse;
-  height: 300px;
+  height: 250px;
 }
 
 .user-card-image {
@@ -66,13 +66,17 @@
   padding: 20px;
 }
 
-.post-card {
+.user-post-card {
   background-color: rgb(240, 239, 235);
   margin: 10px;
   overflow: hidden;
   border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border-collapse: collapse;
   height: 100px;
+}
+
+.user-post-card-text {
+  padding: 10px;
 }

@@ -94,7 +94,13 @@ const Dashboard = () => {
             </div>
           </div>
           <div className='three'>
-            <div className='post-card'></div>
+            <div className='user-post-card'>
+              <img src="./img/art1.jpg"></img>
+              <div className='user-post-card-text'>
+                <h3>Title</h3>
+                <p>Text</p>
+              </div>
+            </div>
           </div>
       </div>
 
