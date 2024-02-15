@@ -7,16 +7,22 @@ import { AuthProvider } from './context/authContext';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import UploadImage from './component/UploadImage';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [newImageURL, setNewImageURL] = useState("");
+
+  function handleNewImageURL(imageURL) {
+    setNewImageURL(imageURL);
+  }
+
   return (
     <>
-      <UploadImage />
       <Router>
         <AuthProvider>
-          <Navbar />
+          <Navbar onHandleNewImageURL={handleNewImageURL}/>
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" exact element={<Home newImageURL={newImageURL}/>} />
 
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/sign-up" element={<Signup />} />

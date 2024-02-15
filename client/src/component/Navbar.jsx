@@ -4,8 +4,9 @@ import { Button } from './Button';
 import '../styles/Navbar.css';
 import Signup from '../pages/SignUp';
 import { LoginButton } from './LoginButton';
+import UploadImage from './UploadImage';
 
-const Navbar = () => {
+const Navbar = ({onHandleNewImageURL}) => {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const [showSignup, setShowSignup] = useState(false);
@@ -45,7 +46,10 @@ const Navbar = () => {
             {' '}
             Artoholic{' '}
           </Link>
-
+          <div className="imageUploadButton" id="imageUploadButton">
+            <UploadImage onHandleNewImageURL={onHandleNewImageURL}/>
+          </div>
+          
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>
