@@ -48,11 +48,21 @@ module.exports = {
     },
     async updateAUser(req,res){
         try {
+            const { first_name, 
+                    last_name, 
+                    username, 
+                    email, 
+                    password, 
+                    bio, 
+                    image } =req.body;
+
             const id = parseInt(req.params.id);
-            const updateTheUser = await userModel.updateUser(id);
-            res.send(updateTheUser)
+            const updateInfo = req.body;
+            const updateTheUser = await userModel.updateUser(id, updateInfo);
+            res.send(req.body)
         } catch (error) {
             console.log(error.message)
+            res.status(400).send("no luck");
         }
     },
 }

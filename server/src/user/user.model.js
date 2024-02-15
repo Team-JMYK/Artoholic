@@ -27,14 +27,14 @@ module.exports = {
           "bio": reqbody.bio,
           "image": reqbody.image
         })
-        .select('*');
+        .returning('*');
     },
 
     deleteUser(id){
         return knex('user_table').where('id', '=', id).del();
     },
 
-    updateUser(id){
-        return knex('user_table').where('id', '=', id).update(updatedUser);
+    updateUser(id, updateInfo){
+        return knex('user_table').where('id', '=', id).update(updateInfo);
     }
 }

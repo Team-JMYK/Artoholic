@@ -58,7 +58,8 @@ module.exports = {
     async updateAPost(req,res) {
         try {
             const id = parseInt(req.params.id);
-            const updateThePost = await postModel.updatePost(id);
+            const updateInfo = req.body;
+            const updateThePost = await postModel.updatePost(id, updateInfo);
             res.send(updateThePost);
 
         } catch (error) {

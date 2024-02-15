@@ -33,9 +33,9 @@ module.exports = {
         return knex(POST_TABLE).where('id', '=', id).del()
     },
 
-    updatePost(id){
+    updatePost(id, updateInfo){
         return knex(POST_TABLE)
         .where('id', '=', id)
-        .update(updatedPost);
+        .update(updateInfo);
     },
 };
