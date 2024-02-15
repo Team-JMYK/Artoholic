@@ -22,9 +22,10 @@ const Login = () => {
           username: username,
           password: password,
         }),
-        credentials: 'include',
+        //credentials: 'include',
       });
 
+      console.log(response);
       if (response.ok) {
         const data = await response.json();
         login(data);
