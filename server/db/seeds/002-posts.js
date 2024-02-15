@@ -15,6 +15,7 @@ exports.seed = async function (knex) {
       createdAt: new Date().toISOString(),
       updateAt: new Date().toISOString(),
       userId: existingUserId[0],
+      img: "https://res.cloudinary.com/dbegmxgyd/image/upload/v1707964956/artoholic/h6jrzlhdbpdm7yd1nwj4.webp"
     },
     {
       slug: 'second-post',
@@ -24,6 +25,7 @@ exports.seed = async function (knex) {
       createdAt: new Date().toISOString(),
       updateAt: new Date().toISOString(),
       userId: existingUserId[1],
+      img: "https://res.cloudinary.com/dbegmxgyd/image/upload/v1707965007/artoholic/jaapxus2qcmdnyce5mnj.webp"
     },
   ]);
 };
