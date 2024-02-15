@@ -138,6 +138,8 @@ app.post('/login', async (req, res) => {
 //timestamp
 const timeStamp = new Date().toISOString();
 
+app.get('/matt', (req,res)=> res.status(200).send("port works"))
+
 const userController = require("./user/user.controller.js");
 const postController = require("./post/post.controller.js");
 
