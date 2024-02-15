@@ -28,14 +28,22 @@
   align-items: center;
 }
 
+.imageUploadButton {
+  width:10px;
+}
+
+#imageUploadButton{
+  width:10px;
+}
 
 .nav-menu {
+  /* border: white solid; */
   display: grid;
   grid-template-columns: repeat(10, auto);
   grid-gap: 10px;
   list-style: none;
   text-align: center;
-  width: 60vw;
+  width: 80vw;
   justify-content: end;
   margin-left: 2rem;
 }
