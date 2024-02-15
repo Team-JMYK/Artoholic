@@ -7,12 +7,12 @@ import Footer from '../component/Footer';
 import Dashboard from './Dashboard';
 import { useEffect, useState } from 'react';
 
-const Home = () => {
+const Home = ({newImageURL}) => {
   return (
     <>
       <div>
         <HeroSection/>
-        <Cards/>
+        <Cards newImageURL={newImageURL}/>
         <Footer/>
       </div>
     </>

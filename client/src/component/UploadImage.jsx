@@ -30,10 +30,11 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 
-function UploadImage(){
+function UploadImage({onHandleNewImageURL}){
     const preset_key = "v5lge08i";
     const cloud_name = "dbegmxgyd";
     const [image, setImage] = useState();
+    let imageURL = '';
 
     function handleFile(event) {
         const file = event.target.files[0];
@@ -42,7 +43,11 @@ function UploadImage(){
         formData.append("upload_preset", preset_key);
         axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
         // .then(res => setImage(res.data.secure_url))
-        .then(res => console.log(res))
+        .then(res => {
+            console.log(res);
+            imageURL = res.data.secure_url;
+            onHandleNewImageURL(imageURL);
+        })
         .catch( err => console.log(err));
     }
 
