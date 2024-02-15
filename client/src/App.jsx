@@ -7,8 +7,11 @@ import { AuthProvider } from './context/authContext';
 import Signup from './pages/SignUp';
 import Login from './pages/Login';
 import UploadImage from './component/UploadImage';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [newImageURL, setNewImageURL] = useState("");
+
   return (
     <>
       <Router>

@@ -28,13 +28,14 @@
   align-items: center;
 }
 
-.imageUploadButton {
-  width:10px;
+.imageUploadButton input[type="file"]{
+  width:160px;
+  margin: 20px;
 }
 
-#imageUploadButton{
+/* #imageUploadButton{
   width:10px;
-}
+} */
 
 .nav-menu {
   /* border: white solid; */

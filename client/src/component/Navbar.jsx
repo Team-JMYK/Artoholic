@@ -46,7 +46,10 @@ const Navbar = () => {
             {' '}
             Artoholic{' '}
           </Link>
-          <UploadImage  className="imageUploadButton" id="imageUploadButton"/>
+          <div className="imageUploadButton" id="imageUploadButton">
+            <UploadImage />
+          </div>
+          
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
           </div>

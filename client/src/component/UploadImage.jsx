@@ -49,8 +49,8 @@ function UploadImage(){
     return (
         <>
         <input type = "file" name = "image" onChange = {handleFile}></input>
-        {/* <br></br> */}
-        {/* <img src = {image} /> */}
+        {/* <br></br>
+        <img src = {image} /> */}
         </>
     )
 }
