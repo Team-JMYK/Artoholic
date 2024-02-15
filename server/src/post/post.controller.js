@@ -58,7 +58,6 @@ module.exports = {
     async updateAPost(req,res) {
         try {
             const id =  parseInt(req.paramas.id);
-
             const updateThePost = await postModel.updatePost(id);
             res.send(updateThePost);
 

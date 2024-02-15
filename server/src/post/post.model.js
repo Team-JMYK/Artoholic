@@ -17,16 +17,14 @@ module.exports = {
 
 // Not sure what we need to pass as a parameter to addNewPost in the MVC model - Matt
 
-    addNewPost(){
+    addNewPost(reqbody){
         return knex(POST_TABLE)
         .insert({
-          slug,
-          title,
-          description,
-          body,
-          createdAt: timeStamp,
-          updateAt: timeStamp,
-          userId,
+          "slug": reqbody.slug, 
+          "title": reqbody.title,
+          "description": reqbody.description,
+          "body": reqbody.body,
+          "userId": reqbody.userId
         })
         .select('*');
     },
