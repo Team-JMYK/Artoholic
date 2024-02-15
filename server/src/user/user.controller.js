@@ -30,10 +30,11 @@ module.exports = {
                 image,
             } = req.body;
 
-            const newUserData = await userModel.addNewUser()
-            res.send(newUserData)
+            const newUserData = await userModel.addNewUser(req.body);
+            res.status(200).send(newUserData);
         } catch (error) {
-            console.log(error.message)
+            console.log(error.message);
+            res.status(400).send("no");
         }
     },
     async deleteAUser(req,res){
