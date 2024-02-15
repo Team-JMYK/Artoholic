@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/forms.css';
 import { useAuth } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +8,19 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function autoLogin() {
+      const response = await fetch("http://localhost:8080/autoLogin", {
+        method: "GET",
+        credentials: "include",
+      });
+      if (response.status === 200) {
+        navigate("/homepage");
+      }
+    }
+    autoLogin();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,7 +35,7 @@ const Login = () => {
           username: username,
           password: password,
         }),
-        //credentials: 'include',
+        credentials: 'include',
       });
 
       console.log(response);

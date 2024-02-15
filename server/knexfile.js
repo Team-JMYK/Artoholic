@@ -10,7 +10,7 @@ module.exports = {
     client: 'pg',
     connection: process.env.DB_URL || {
       database: 'blog_database',
-      user: process.env.DATABASE_USER || 'sq1',
+      user: process.env.DATABASE_USER,
       host: 'localhost',
       port: 5432,
     },
